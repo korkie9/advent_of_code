@@ -1,43 +1,37 @@
-
 <?php
-
 
 require_once '../lib/Solution.php';
 require_once '../lib/Input.php';
 
-class Puzzle2 implements Solution {
+class Puzzle2 implements Solution
+{
 
-  public static function solve(): int {
-    $input = lib\GetInputArr();
+  public static function solve(): int
+  {
+    $input = lib\GetInputArr('../day_1/input.txt');
 
     $leftArr = [];
     $rightArr = [];
 
-    foreach($input as $val){
+    foreach ($input as $val) {
       $newVal = explode("  ", $val);
       array_push($leftArr, (int)trim($newVal[0]));
       array_push($rightArr, (int)trim($newVal[1]));
     }
 
 
-    $recurrLeftVals = [];
-    $recurrRightVals = [];
     $ans = 0;
 
-    foreach($leftArr as $lindex => $leftVal) {
+    foreach ($leftArr as $leftVal) {
       $count = 0;
 
-      foreach($rightArr as $rindex => $rightVal){
-        if($leftVal == $rightVal) $count++;
+      foreach ($rightArr as $rightVal) {
+        if ($leftVal == $rightVal) $count++;
       }
 
-      $ans = $ans + ($leftVal*$count);
-
+      $ans = $ans + ($leftVal * $count);
     }
 
     return $ans;
   }
 }
-
-
-?>
