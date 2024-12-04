@@ -54,7 +54,7 @@ class Puzzle2 implements Solution
           goto a;
         } else {
           $hasSpliced = false;
-          $isSafe = false;
+          return false;
         };
       }
 
@@ -66,7 +66,7 @@ class Puzzle2 implements Solution
           goto a;
         } else {
           $hasSpliced = false;
-          $isSafe = false;
+          return false;
         };
       }
     }
